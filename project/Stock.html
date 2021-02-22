@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stock Management</title>
+    <link rel="stylesheet" href="stock.css">    
+</head>
+<body onload="loadData();loadTable()">
+    <h1>Stock Management</h1>
+    <ul id="UL">
+        <li id="L"><a href="Stock.html">Product Management</a></li>
+        <li id="L"><a href="purchase.html">Purchase Management</a></li>
+        <li id="L"><a href="report.html">Report</a></li>
+        <li id="L"><a href="#">Conduct</a></li>
+        <button id="Log"><a href="login.html">Log Out</a></button>
+    </ul>
+    <br>
+    <h2>Product Management</h2>
+    <div class="form">
+        <input type="text" placeholder="Enter Name" class="name">
+        <br><br>
+        <input type="number" placeholder="Enter Quantity" class="quant">
+        <br><br>
+        <button onclick="add()">Add</button>
+    </div>
+    <br><br>
+    <table class="list">
+        <tr class="heading">
+            <th>NAME</th>
+            <th>QUANTITY</th>
+        </tr>
+        
+    </table>
+    <script src="stock.js"></script>
+</body>
+</html>

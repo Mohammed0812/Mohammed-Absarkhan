@@ -1,0 +1,87 @@
+body{
+    background-color: darkturquoise;
+}
+h1 {
+    color: #f1f1f1;
+    background-color: blue;
+    text-align: center;
+    padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 0 4px 1px black;
+}
+h2 {
+    color: blue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: underline;
+}
+#UL {
+    list-style-type: none;
+    background-color: grey;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+#L {
+    float: left;
+}
+#L a {
+    display: block;
+    text-decoration: none;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 10px 12px;
+}
+#L a:hover {
+    background-color: green;
+    color: white;
+}
+
+#Log {
+    float: right;
+    background-color: blue;
+    
+}
+#Log a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+}
+
+/*product Management */
+.form {
+    background-color: blanchedalmond;
+    padding: 5px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+.form input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    color: black;
+    opacity: 0.6;
+    outline: none;
+}
+table,th,td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 500px;
+}
+th {
+    background-color: blanchedalmond;
+}
+td {
+    text-align: center;
+    background-color: white;
+}
+table input {
+    outline: none;
+    text-align: center;
+    color: black;
+    background-color: darkturquoise;
+}
+table button{
+    width: -webkit-fill-available;
+}

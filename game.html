@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .frame {
+            display: flex;
+            border: 1px solid red;
+            width: 350px;
+            height: 350px;
+            background-color: grey;
+            overflow: hidden;
+        }
+
+        .frame .basket {
+            width: 50px;
+            height: 50px;
+            border-bottom-left-radius: 5%;
+            border-radius: 10%;
+        }
+        .frame .hen1 ,.hen2 {
+            margin: 0;
+            width: 25px;
+            height: 25px;
+            background-color: blue;
+            border-radius: 50%;
+            animation: Absar 5s linear infinite;
+        }
+        @keyframes Absar {
+            from{top: 0px;bottom: 280px;}
+            to{top: 280px;bottom: 0px;}
+        }
+        .frame .hen2 {
+            margin: 0;
+            width: 25px;
+            height: 25px;
+            background-color: blue;
+            border-radius: 50%;
+            animation: Mohammed 5s linear 2s infinite;
+        }
+        @keyframes Mohammed {
+            from{top: 0px;bottom: 280px;}
+            to{top: 280px;bottom: 0px;}
+        }
+        .frame .hen3 {
+            margin: 0;
+            width: 25px;
+            height: 25px;
+            background-color: blue;
+            border-radius: 50%;
+            animation: khan 5s linear 1s infinite;
+        }
+        @keyframes khan {
+            from{top: 0px;bottom: 300px;}
+            to{top: 300px;bottom: 0px;}
+        }
+        body {
+            background-color: skyblue;
+        }
+        .inp {
+            margin-top: 25px;
+            margin-left: 25px;
+        }
+    </style>
+</head>
+<body onkeydown="getMove(event)">
+    <div class="inp">
+        <label>Score</label>
+        <input type="number">
+    </div>
+    <br><br>
+    <div class="frame">
+        <div class="hen1"></div>
+        <div class="hen2"></div>
+        <div class="hen3"></div>
+        <img src="basket.png" alt="Basket" class="basket">  
+    </div>
+    <script>
+        var image = null;
+        var egg1 = null;
+        var egg2 = null;
+        var egg3 = null;
+        function start() {
+            //create image
+            image = document.querySelector('.basket');
+            image.style.position = 'Relative';
+            image.style.top = '290px';
+            image.style.left = '0px';
+            //create egg
+            egg1 = document.querySelector('.hen1');
+            egg1.style.position = 'Relative';
+            egg1.style.top = '30px';
+            egg1.style.left = '50px';
+
+            egg2 = document.querySelector('.hen2');
+            egg2.style.position = 'Relative';
+            egg2.style.top = '30px';
+            egg2.style.left = '100px';
+            
+            egg3 = document.querySelector('.hen3');
+            egg3.style.position = 'Relative';
+            egg3.style.top = '30px';
+            egg3.style.left = '150px';
+            setInterval(() => {
+                var imageTop = image.offsetTop;
+                var imageLeft = image.offsetLeft;
+                var eggTop = egg1.offsetTop;
+                var eggLeft = egg1.offsetLeft;
+                if(imageTop == eggTop && imageLeft == eggLeft) {
+                    alert('score 1');
+                }
+            },100)
+        }
+        
+        function getMove(e) {
+            var key_code = e.which || e.keyCode;
+            switch (key_code) {
+                case 37: moveLeft();
+                    break;
+                case 39: moveRight();
+                    break;
+                default: console.log(e);
+            }
+        }
+        function moveLeft() { 
+            var lft = image.style.left;
+            image.style.left = parseInt(image.style.left) - 10 + 'px';
+        }
+        function moveRight() {
+            image.style.left = parseInt(image.style.left) + 10 + 'px';
+        }
+        window.onload = start;
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <link rel="stylesheet" href="stock.css">
+</head>
+<body>
+    <h1>Stock Management</h1>
+    <ul id="UL">
+        <li id="L"><a href="Stock.html">Product Management</a></li>
+        <li id="L"><a href="purchase.html">Purchase Management</a></li>
+        <li id="L"><a href="report.html">Report</a></li>
+        <li id="L"><a href="#">Conduct</a></li>
+        <button id="Log"><a href="login.html">Log Out</a></button>
+    </ul>
+    <br>
+    <h2>Report Product Details</h2>
+    <div id="product">
+        <label>Quantity Received</label>
+        <input type="number" id="received">
+        <label>Quantity on Hand</label>
+        <input type="number" id="onHand">
+    </div>
+    <br><br>
+    <table id="myTable">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Quantity Received</th>
+            <th>Quantity on Hand</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td><button onclick="apple()">Apple</button></td>
+            <td>800</td>
+            <td id="received1"></td>
+            <td id="onHand1"></td>
+            <td id="total1"></td>
+        </tr>
+        <tr>
+            <td><button onclick="banana()">Banana</button></td>
+            <td>1100</td>
+            <td id="received2"></td>
+            <td id="onHand2"></td>
+            <td id="total2"></td>
+        </tr>
+        <tr>
+            <td><button onclick="mango()">Mango</button></td>
+            <td>500</td>
+            <td id="received3"></td>
+            <td id="onHand3"></td>
+            <td id="total3"></td>
+        </tr>
+        <tr>
+            <td><button onclick="orange()">Orange</button></td>
+            <td>650</td>
+            <td id="received4"></td>
+            <td id="onHand4"></td>
+            <td id="total4"></td>
+        </tr>
+        <tr>
+            <td><button onclick="lemon()">Lemon</button></td>
+            <td>1000</td>
+            <td id="received5"></td>
+            <td id="onHand5"></td>
+            <td id="total5"></td>
+        </tr>
+        <tr>
+            <td><button onclick="pineApple()">Pineapple</button></td>
+            <td>300</td>
+            <td id="received6"></td>
+            <td id="onHand6"></td>
+            <td id="total6"></td>
+        </tr>
+        <tr>
+            <td><button onclick="waterMelon()">Watermelon</button></td>
+            <td>350</td>
+            <td id="received7"></td>
+            <td id="onHand7"></td>
+            <td id="total7"></td>
+        </tr>
+    </table>
+    <script>
+        function apple() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received1').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand1').innerHTML = h; 
+            var total1 = (q + h);
+            document.querySelector('#total1').innerHTML = total1;
+        }
+        function banana() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received2').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand2').innerHTML = h; 
+            var total2 = (q + h);
+            document.querySelector('#total2').innerHTML = total2;
+        }
+        function mango() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received3').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand3').innerHTML = h; 
+            var total3 = (q + h);
+            document.querySelector('#total3').innerHTML = total3;
+        }
+        function orange() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received4').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand4').innerHTML = h; 
+            var total4 = (q + h);
+            document.querySelector('#total4').innerHTML = total4;
+        }
+        function lemon() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received5').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand5').innerHTML = h; 
+            var total5 = (q + h);
+            document.querySelector('#total5').innerHTML = total5;
+        }
+        function pineApple() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received6').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand6').innerHTML = h; 
+            var total6 = (q + h);
+            document.querySelector('#total6').innerHTML = total6;
+        }
+        function waterMelon() {
+            var table = document.querySelector('#myTable');
+            var q = parseInt(document.querySelector('#received').value);
+            document.querySelector('#received7').innerHTML = q;
+            var h = parseInt(document.querySelector('#onHand').value);
+            document.querySelector('#onHand7').innerHTML = h; 
+            var total7 = (q + h);
+            document.querySelector('#total7').innerHTML = total7;
+        }
+    </script>
+</body>
+</html>
