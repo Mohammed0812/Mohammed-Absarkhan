@@ -71,21 +71,23 @@
             egg.style.position = 'absolute';
             egg.style.top = '0px';
             
-            var randomLeft = getRandomNumber(0,320);
-            egg.style.left = randomLeft + 'px';
-            function getRandomNumber(min,max) {
-                return Math.round(Math.random() * (max-min) + min);
-            }
+            
             var pos = 0;
-            id = setInterval(frame, 15);
+            id = setInterval(frame, 50);
             function frame() {
-                if(pos == 315) {
+                if(pos == 290) {
                     clearInterval(id);
                 } else {
                     pos++;
                     egg.style.top = pos + 'px';
 
                 }
+            }
+            
+            var randomLeft = getRandomNumber(0,320);
+            egg.style.left = randomLeft + 'px';
+            function getRandomNumber(min,max) {
+                return Math.round(Math.random() * (max-min) + min);
             }
             
         }
@@ -97,12 +99,11 @@
                 var eggLeft = egg.offsetLeft;
                 if (eggTop == imageTop && imageLeft == eggLeft) {
                     
-                    var scrbx = document.querySelector(".score");
-                    scrbx.innerHTML = score;
+                    var scoreBox = document.querySelector(".score");
+                    scoreBox.innerHTML = score;
                     score++;
-                    start();
                 }
-            }, 35);
+            },35);
         function getMove(e) {
             var key_code = e.which || e.keyCode;
             switch (key_code) {
@@ -114,10 +115,10 @@
             }
         }
         function moveLeft() {   
-            image.style.left = parseInt(image.style.left) - 5 + 'px';
+            image.style.left = parseInt(image.style.left) - 1 + 'px';
         }
         function moveRight() {
-            image.style.left = parseInt(image.style.left) + 5 + 'px';
+            image.style.left = parseInt(image.style.left) + 1 + 'px';
         }
         window.onload = start;
     </script>
