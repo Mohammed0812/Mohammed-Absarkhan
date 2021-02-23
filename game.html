@@ -73,7 +73,7 @@
             
             
             var pos = 0;
-            id = setInterval(frame, 50);
+            id = setInterval(frame, 10);
             function frame() {
                 if(pos == 290) {
                     clearInterval(id);
@@ -102,6 +102,7 @@
                     var scoreBox = document.querySelector(".score");
                     scoreBox.innerHTML = score;
                     score++;
+                    start();
                 }
             },35);
         function getMove(e) {
