@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #game {
+            border: 1px solid black;
+        }
+        #start {
+            color: black;
+            font-size: 14px;
+            position: relative;
+            top: 14px;
+        }
+        #playAgain {
+            color: black;
+            font-size: 14px;
+            position: relative;
+            top: 14px;
+        }
+        .egg {
+            width: 20px;
+            height: 20px;
+            background: white;
+            position: absolute;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game">
+        <button id="start" onload="start()">START</button>
+        <button id="playAgain" onload="start()">Play Again</button>
+        <img src="basket.png" alt="basket" id="basket">
+    </div>
+    <br><br>
+    <p id="score">0</p>
+    <script>
+        var start = document.getElementById('start');
+        var playAgain = document.getElementById('playAgain');
+        var game = document.getElementById('game');
+        game.style.width = '400px';
+        game.style.height = '400px';
+        game.style.backgroundColor = 'skyBlue';
+        var basket = document.getElementById('basket');
+        basket.style.width = "50px";
+        basket.style.height = "50px";
+        basket.style.borderRadius = "10%";
+        basket.style.position = 'relative';
+        basket.style.top = '345px';
+        basket.style.left = '10px';
+        var leftArrow = 37;
+        var rightArrow = 39;
+        var eggs = [];
+        var score = 0;
+        var gameInterval = null;
+
+        function position(element) {
+            return parseInt(element.replace('px', ''), 10);
+        }
+        function catchEgg(egg) {
+            var eggTop = position(egg.style.top);
+            if (eggTop > 350 && eggTop < 360) {
+                var basketLeft = position(basket.style.left);
+                var basketRight = basketLeft + 45;
+                var eggLeft = position(egg.style.left);
+                var eggRight = eggLeft + 20;
+                if (eggLeft < basketRight && eggRight > basketLeft) {
+                    return true;
+                }
+            }
+        }
+        function createEgg(x) {
+            var egg = document.createElement('div');
+            egg.className = 'egg';
+            egg.style.left = `${x}px`;
+            var top = 0;
+            game.appendChild(egg);
+            function moveEgg() {
+                egg.style.top = `${top}px`;
+                if (catchEgg(egg)) {
+                    score++;
+                    egg.remove();
+                } else if (top < game.style.height) {
+                    top += 2;
+                    window.requestAnimationFrame(moveEgg);
+                } else if (top === game.style.height) {
+                    endGame();
+                }
+            }
+            window.requestAnimationFrame(moveEgg);
+            eggs.push(egg);
+            return egg;
+        }
+        function endGame() {
+            clearInterval(gameInterval);
+            eggs.forEach(function (egg) {
+                egg.remove();
+            });
+            document.removeEventListener('keydown', moveBasket);
+            playAgain.innerHTML = `You Lose!<br/>You caught ${score} eggs!<br/><br/>PLAY AGAIN?`;
+            playAgain.style.display = 'inline';
+            basket.style.left = '180px';
+        }
+        function moveBasketLeft() {
+            function moveLeft() {
+                var left = position(basket.style.left);
+                if (left < 4) {
+                    basket.style.left = '0px';
+                }
+                if (left >= 4) {
+                    basket.style.left = `${left - 4}px`;
+                    window.requestAnimationFrame(moveLeft);
+                }
+            }
+            window.requestAnimationFrame(moveLeft);
+        }
+        function moveBasketRight() {
+            function moveRight() {
+                var right = position(basket.style.left);
+
+                if (right > game.style.width - 44) {
+                    basket.style.left = `${game.style.width - 40}px`;
+                }
+                if (right <= game.style.width - 44) {
+                    basket.style.left = `${right + 4}px`;
+                    window.requestAnimationFrame(moveRight);
+                }
+            }
+            window.requestAnimationFrame(moveRight);
+        }
+        function moveBasket(e) {
+            if (e.which === rightArrow) {
+                moveBasketRight();
+                e.preventDefault();
+                e.stopPropagation();
+            } else if (e.which === leftArrow) {
+                moveBasketLeft();
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+
+        function start() {
+            document.addEventListener('keydown', moveBasket);
+
+            score = 0;
+
+            start.style.display = 'none';
+            playAgain.style.display = 'none';
+
+            gameInterval = setInterval(function () {
+                createEgg(Math.floor(Math.random() * (game.style.width - 20)));
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
