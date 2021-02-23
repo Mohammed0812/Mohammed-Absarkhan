@@ -97,7 +97,9 @@
                 var imageLeft = image.offsetLeft;
                 var eggTop = egg.offsetTop;
                 var eggLeft = egg.offsetLeft;
-                if (eggTop == imageTop && imageLeft == eggLeft) {
+                var topdiff = eggTop - imageTop;
+                var leftDiff = imageLeft - eggLeft;
+                if (topdiff>= -30 && topdiff <= 30 && leftDiff>= -30 && leftDiff <= 30) {
                     
                     var scoreBox = document.querySelector(".score");
                     scoreBox.innerHTML = score;
