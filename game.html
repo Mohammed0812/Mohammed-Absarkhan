@@ -59,7 +59,6 @@
         
         var image = null;
         var egg = null;
-        var id = null;
         function start() {
             //create image
             image = document.querySelector('.basket');
@@ -73,7 +72,7 @@
             
             
             var pos = 0;
-            id = setInterval(frame, 30);
+            var id = setInterval(frame, 20);
             function frame() {
                 if(pos == 290) {
                     clearInterval(id);
@@ -99,14 +98,14 @@
                 var eggLeft = egg.offsetLeft;
                 var topdiff = eggTop - imageTop;
                 var leftDiff = imageLeft - eggLeft;
-                if (topdiff>= -30 && topdiff <= 30 && leftDiff>= -30 && leftDiff <= 30) {
+                if(topdiff >= -30 && topdiff <= 30 && leftDiff >= -30 && leftDiff <= 30) {
                     
                     var scoreBox = document.querySelector(".score");
                     scoreBox.innerHTML = score;
                     score++;
                     start();
                 }
-            },35);
+            },50);
         function getMove(e) {
             var key_code = e.which || e.keyCode;
             switch (key_code) {
@@ -118,12 +117,15 @@
             }
         }
         function moveLeft() {   
-            image.style.left = parseInt(image.style.left) - 1 + 'px';
+            image.style.left = parseInt(image.style.left) - 5 + 'px';
         }
         function moveRight() {
-            image.style.left = parseInt(image.style.left) + 1 + 'px';
+            image.style.left = parseInt(image.style.left) + 5 + 'px';
         }
-        window.onload = start;
+        window.onload = function () {
+            start();
+        }
+        
     </script>
 </body>
 
