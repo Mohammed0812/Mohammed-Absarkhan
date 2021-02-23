@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
@@ -7,6 +8,7 @@
         * {
             box-sizing: border-box;
         }
+
         .frame {
             display: flex;
             border: 1px solid red;
@@ -14,6 +16,7 @@
             height: 350px;
             background-color: grey;
             overflow: hidden;
+            position: relative;
         }
 
         .frame .basket {
@@ -22,68 +25,41 @@
             border-bottom-left-radius: 5%;
             border-radius: 10%;
         }
-        .frame .hen1 ,.hen2 {
-            margin: 0;
+
+        .frame .hen1 {
             width: 25px;
             height: 25px;
             background-color: blue;
             border-radius: 50%;
-            animation: Absar 5s linear infinite;
         }
-        @keyframes Absar {
-            from{top: 0px;bottom: 280px;}
-            to{top: 280px;bottom: 0px;}
-        }
-        .frame .hen2 {
-            margin: 0;
-            width: 25px;
-            height: 25px;
-            background-color: blue;
-            border-radius: 50%;
-            animation: Mohammed 5s linear 2s infinite;
-        }
-        @keyframes Mohammed {
-            from{top: 0px;bottom: 280px;}
-            to{top: 280px;bottom: 0px;}
-        }
-        .frame .hen3 {
-            margin: 0;
-            width: 25px;
-            height: 25px;
-            background-color: blue;
-            border-radius: 50%;
-            animation: khan 5s linear 1s infinite;
-        }
-        @keyframes khan {
-            from{top: 0px;bottom: 300px;}
-            to{top: 300px;bottom: 0px;}
-        }
+
         body {
             background-color: skyblue;
         }
+
         .inp {
             margin-top: 25px;
             margin-left: 25px;
         }
     </style>
 </head>
+
 <body onkeydown="getMove(event)">
-    <div class="inp">
-        <label>Score</label>
-        <input type="number">
-    </div>
+    
     <br><br>
     <div class="frame">
         <div class="hen1"></div>
-        <div class="hen2"></div>
-        <div class="hen3"></div>
-        <img src="basket.png" alt="Basket" class="basket">  
+        <img src="basket.png" alt="Basket" class="basket">
+    </div>
+    <br><br>
+    <div class="inp">
+        <p class="score">0</p>
     </div>
     <script>
+        
         var image = null;
-        var egg1 = null;
-        var egg2 = null;
-        var egg3 = null;
+        var egg = null;
+        var id = null;
         function start() {
             //create image
             image = document.querySelector('.basket');
@@ -91,31 +67,42 @@
             image.style.top = '290px';
             image.style.left = '0px';
             //create egg
-            egg1 = document.querySelector('.hen1');
-            egg1.style.position = 'Relative';
-            egg1.style.top = '30px';
-            egg1.style.left = '50px';
-
-            egg2 = document.querySelector('.hen2');
-            egg2.style.position = 'Relative';
-            egg2.style.top = '30px';
-            egg2.style.left = '100px';
+            egg = document.querySelector('.hen1');
+            egg.style.position = 'absolute';
+            egg.style.top = '0px';
             
-            egg3 = document.querySelector('.hen3');
-            egg3.style.position = 'Relative';
-            egg3.style.top = '30px';
-            egg3.style.left = '150px';
-            setInterval(() => {
+            var randomLeft = getRandomNumber(0,320);
+            egg.style.left = randomLeft + 'px';
+            function getRandomNumber(min,max) {
+                return Math.round(Math.random() * (max-min) + min);
+            }
+            var pos = 0;
+            id = setInterval(frame, 15);
+            function frame() {
+                if(pos == 315) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    egg.style.top = pos + 'px';
+
+                }
+            }
+            
+        }
+        var score = 0;
+        setInterval(() => {
                 var imageTop = image.offsetTop;
                 var imageLeft = image.offsetLeft;
-                var eggTop = egg1.offsetTop;
-                var eggLeft = egg1.offsetLeft;
-                if(imageTop == eggTop && imageLeft == eggLeft) {
-                    alert('score 1');
+                var eggTop = egg.offsetTop;
+                var eggLeft = egg.offsetLeft;
+                if (eggTop == imageTop && imageLeft == eggLeft) {
+                    
+                    var scrbx = document.querySelector(".score");
+                    scrbx.innerHTML = score;
+                    score++;
+                    start();
                 }
-            },100)
-        }
-        
+            }, 35);
         function getMove(e) {
             var key_code = e.which || e.keyCode;
             switch (key_code) {
@@ -126,14 +113,14 @@
                 default: console.log(e);
             }
         }
-        function moveLeft() { 
-            var lft = image.style.left;
-            image.style.left = parseInt(image.style.left) - 10 + 'px';
+        function moveLeft() {   
+            image.style.left = parseInt(image.style.left) - 5 + 'px';
         }
         function moveRight() {
-            image.style.left = parseInt(image.style.left) + 10 + 'px';
+            image.style.left = parseInt(image.style.left) + 5 + 'px';
         }
         window.onload = start;
     </script>
 </body>
+
 </html>
