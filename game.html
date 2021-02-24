@@ -45,7 +45,7 @@
 </head>
 
 <body onkeydown="getMove(event)">
-    
+
     <br><br>
     <div class="frame">
         <div class="hen1"></div>
@@ -56,7 +56,7 @@
         <p class="score">0</p>
     </div>
     <script>
-        
+
         var image = null;
         var egg = null;
         function start() {
@@ -69,12 +69,12 @@
             egg = document.querySelector('.hen1');
             egg.style.position = 'absolute';
             egg.style.top = '0px';
-            
-            
+
+
             var pos = 0;
-            var id = setInterval(frame, 15);
+            var id = setInterval(frame, 10);
             function frame() {
-                if(pos == 290) {
+                if (pos == 350) {
                     clearInterval(id);
                 } else {
                     pos++;
@@ -82,30 +82,39 @@
 
                 }
             }
-            
-            var randomLeft = getRandomNumber(0,320);
+
+            var randomLeft = getRandomNumber(0, 320);
             egg.style.left = randomLeft + 'px';
-            function getRandomNumber(min,max) {
-                return Math.round(Math.random() * (max-min) + min);
+            function getRandomNumber(min, max) {
+                return Math.round(Math.random() * (max - min) + min);
             }
-            
+
         }
-        var score = 0;
+        var score = 1;
         setInterval(() => {
-                var imageTop = image.offsetTop;
-                var imageLeft = image.offsetLeft;
-                var eggTop = egg.offsetTop;
-                var eggLeft = egg.offsetLeft;
-                var topdiff = eggTop - imageTop;
-                var leftDiff = imageLeft - eggLeft;
-                if(topdiff >= -30 && topdiff <= 30 && leftDiff >= -30 && leftDiff <= 30) {
-                    
-                    var scoreBox = document.querySelector(".score");
-                    scoreBox.innerHTML = score;
-                    score++;
-                    start();
+            var imageTop = image.offsetTop;
+            var imageLeft = image.offsetLeft;
+            var eggTop = egg.offsetTop;
+            var eggLeft = egg.offsetLeft;
+            var topdiff = eggTop - imageTop;
+            var leftDiff = imageLeft - eggLeft;
+            if (topdiff >= -30 && topdiff <= 30 && leftDiff >= -30 && leftDiff <= 30) {
+
+                var scoreBox = document.querySelector(".score");
+                scoreBox.innerHTML = score;
+                score++;
+                start();
+            } else if (eggTop == 350) {
+                refreshGame();
+            }
+        }, 50);
+        function refreshGame(el) {
+            setInterval(function () {
+                if (el !== document.activeElement) {
+                    document.location.reload();
                 }
-            },50);
+            }, 100);
+        }
         function getMove(e) {
             var key_code = e.which || e.keyCode;
             switch (key_code) {
@@ -116,7 +125,7 @@
                 default: console.log(e);
             }
         }
-        function moveLeft() {   
+        function moveLeft() {
             image.style.left = parseInt(image.style.left) - 5 + 'px';
         }
         function moveRight() {
@@ -125,7 +134,7 @@
         window.onload = function () {
             start();
         }
-        
+
     </script>
 </body>
 
