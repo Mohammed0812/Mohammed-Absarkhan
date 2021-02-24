@@ -83,8 +83,7 @@
             egg = document.querySelector('.hen1');
             egg.style.position = 'absolute';
             egg.style.top = '0px';
-
-
+            
             var pos = 0;
             var id = setInterval(frame, 10);
             function frame() {
@@ -96,14 +95,14 @@
 
                 }
             }
-
+            //egg down random
             var randomLeft = randomNumber(0, 320);
             egg.style.left = randomLeft + 'px';
             function randomNumber(min, max) {
                 return Math.round(Math.random() * (max - min) + min);
             }
-
         }
+        //set score
         var score = 1;
         setInterval(() => {
             var imageTop = image.offsetTop;
@@ -121,6 +120,7 @@
                 refreshGame();
             }
         }, 50);
+        //Game refresh
         function refreshGame(el) {
             setInterval(function () {
                 if (el !== document.activeElement) {
@@ -128,6 +128,7 @@
                 }
             }, 100);
         }
+        //Move the basket
         function getMove(e) {
             var key_code = e.which || e.keyCode;
             switch (key_code) {
