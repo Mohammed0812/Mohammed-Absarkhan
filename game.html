@@ -9,6 +9,17 @@
             box-sizing: border-box;
         }
 
+        body {
+            background-color: skyblue;
+        }
+        h1 {
+            border: 1px solid black;
+            color: rgb(239, 243, 18);
+            background-color: black;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            text-transform: uppercase;
+        }
         .frame {
             display: flex;
             border: 1px solid red;
@@ -33,20 +44,23 @@
             border-radius: 50%;
         }
 
-        body {
-            background-color: skyblue;
-        }
-
         .inp {
-            margin-top: 25px;
-            margin-left: 25px;
+            font-size: 30px;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: italic;
+            color: red;
+            border: 1px solid black;
+            width: 300px;
+            background-color: blanchedalmond;
+            border-radius: 20%;
         }
     </style>
 </head>
 
 <body onkeydown="getMove(event)">
-
-    <br><br>
+    <h1>Catch The Egg</h1>
+    <br>
     <div class="frame">
         <div class="hen1"></div>
         <img src="basket.png" alt="Basket" class="basket">
@@ -83,9 +97,9 @@
                 }
             }
 
-            var randomLeft = getRandomNumber(0, 320);
+            var randomLeft = randomNumber(0, 320);
             egg.style.left = randomLeft + 'px';
-            function getRandomNumber(min, max) {
+            function randomNumber(min, max) {
                 return Math.round(Math.random() * (max - min) + min);
             }
 
@@ -99,7 +113,6 @@
             var topdiff = eggTop - imageTop;
             var leftDiff = imageLeft - eggLeft;
             if (topdiff >= -30 && topdiff <= 30 && leftDiff >= -30 && leftDiff <= 30) {
-
                 var scoreBox = document.querySelector(".score");
                 scoreBox.innerHTML = score;
                 score++;
