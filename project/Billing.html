@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Software</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            background-color: tomato;
+        }
+        td, input,select,option {
+            background-color: wheat;
+        }
+    </style >
+</head>
+<body onload="loadAll()">
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </table>
+    <br>
+    <button onclick="loadAll()">Add</button>
+    <script>
+        //save product list in local storage
+        var product = [{
+            name: 'Apple',
+            price: 10
+        },{
+            name: 'Orange',
+            price: 20
+        },{
+            name: 'Mango',
+            price: 30
+        }];
+        localStorage.setItem('product',JSON.stringify(product));
+
+        function loadAll() {
+            let tableEl = document.querySelector('table');
+            let trEl = document.createElement('tr');
+
+            let tdName = document.createElement('td');
+            let tdPrice = document.createElement('td');
+            let tdQuantity = document.createElement('td');
+            let tdTotal = document.createElement('td');
+
+            tableEl.appendChild(trEl);
+            trEl.appendChild(tdName);
+            trEl.appendChild(tdPrice);
+            trEl.appendChild(tdQuantity);
+            trEl.appendChild(tdTotal);
+            let selectEl = document.createElement('select');
+            tdName.appendChild(selectEl);
+
+            let priceInputEl = document.createElement('input');
+            tdPrice.appendChild(priceInputEl);
+            priceInputEl.type = 'number';
+            let quantityInputEl = document.createElement('input');
+            tdQuantity.appendChild(quantityInputEl);
+            quantityInputEl.type = 'number';
+            quantityInputEl.value = 1;
+            tdTotal.innerText = 0;
+
+            let product = [];
+            let a = localStorage.getItem('product');
+            if(a) {
+                product = JSON.parse(a);
+            }
+            for(let i = 0;i < product.length;i++) {
+                let x = product[0];
+            }
+            product.forEach((x) => {
+                let optionEl = document.createElement('option');
+                selectEl.appendChild(optionEl);
+                optionEl.innerText = x.name;
+            });
+            selectEl.value = '';
+            selectEl.onchange = () => {
+                let x = product.find(x => x.name === selectEl.value);
+                priceInputEl.value = x.price;
+                let total = x.price * quantityInputEl.value;
+                tdTotal.innerText = total;
+            };
+            priceInputEl.oninput = () => {
+                let total = priceInputEl.value * quantityInputEl.value;
+                tdTotal.innerText = total;
+            }
+            quantityInputEl.oninput = () => {
+                let total = priceInputEl.value * quantityInputEl.value;
+                tdTotal.innerText = total;
+            }
+        }
+    </script>
+</body>
+</html>
