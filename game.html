@@ -39,8 +39,8 @@
 
         .frame .hen1 {
             width: 25px;
-            height: 25px;
-            background-color: blue;
+            height: 35px;
+            background-color: white;
             border-radius: 50%;
         }
 
@@ -70,14 +70,13 @@
         <p class="score">0</p>
     </div>
     <script>
-
         var image = null;
         var egg = null;
         function start() {
             //create image
             image = document.querySelector('.basket');
             image.style.position = 'Relative';
-            image.style.top = '290px';
+            image.style.top = '294px';
             image.style.left = '0px';
             //create egg
             egg = document.querySelector('.hen1');
@@ -111,7 +110,7 @@
             var eggLeft = egg.offsetLeft;
             var topdiff = eggTop - imageTop;
             var leftDiff = imageLeft - eggLeft;
-            if (topdiff >= -30 && topdiff <= 30 && leftDiff >= -30 && leftDiff <= 30) {
+            if (topdiff >= -25 && topdiff <= 25 && leftDiff >= -25 && leftDiff <= 25) {
                 var scoreBox = document.querySelector(".score");
                 scoreBox.innerHTML = score;
                 score++;
