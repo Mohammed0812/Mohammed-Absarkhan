@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing Software</title>
@@ -7,14 +8,20 @@
         table {
             border-collapse: collapse;
         }
+
         th {
             background-color: tomato;
         }
-        td, input,select,option {
+
+        td,
+        input,
+        select,
+        option {
             background-color: wheat;
         }
-    </style >
+    </style>
 </head>
+
 <body onload="loadAll()">
     <table border="1">
         <tr>
@@ -31,14 +38,14 @@
         var product = [{
             name: 'Apple',
             price: 10
-        },{
+        }, {
             name: 'Orange',
             price: 20
-        },{
+        }, {
             name: 'Mango',
             price: 30
         }];
-        localStorage.setItem('product',JSON.stringify(product));
+        localStorage.setItem('product', JSON.stringify(product));
 
         function loadAll() {
             let tableEl = document.querySelector('table');
@@ -68,12 +75,12 @@
 
             let product = [];
             let a = localStorage.getItem('product');
-            if(a) {
+            if (a) {
                 product = JSON.parse(a);
             }
-            for(let i = 0;i < product.length;i++) {
+            /*for (let i = 0; i < product.length; i++) {
                 let x = product[0];
-            }
+            } */
             product.forEach((x) => {
                 let optionEl = document.createElement('option');
                 selectEl.appendChild(optionEl);
@@ -97,4 +104,5 @@
         }
     </script>
 </body>
+
 </html>
