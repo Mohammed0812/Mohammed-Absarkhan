@@ -6,6 +6,8 @@
     <input type="number" id="onHand">
 </div>
 <br><br>
+<button onclick="addReport()">Add</button>
+<br><br>
 <table id="table">
     <tr>
         <th>Name</th>
@@ -38,22 +40,10 @@
         <td id="total4"></td>
     </tr>
     <tr>
-        <td><button onclick="lemon()">Lemon</button></td>
+        <td><button onclick="waterMelon()">Watermelon</button></td>
         <td id="received5"></td>
         <td id="onHand5"></td>
         <td id="total5"></td>
-    </tr>
-    <tr>
-        <td><button onclick="pineApple()">Pineapple</button></td>
-        <td id="received6"></td>
-        <td id="onHand6"></td>
-        <td id="total6"></td>
-    </tr>
-    <tr>
-        <td><button onclick="waterMelon()">Watermelon</button></td>
-        <td id="received7"></td>
-        <td id="onHand7"></td>
-        <td id="total7"></td>
     </tr>
 </table>
 <router-outlet></router-outlet>
