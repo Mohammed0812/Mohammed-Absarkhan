@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 800px;
+            height: 50px;
+
+            display: flex;
+        }
+
+        .main .div1 {
+            width: 200px;
+            height: 50px;
+        }
+
+        .main .div2 {
+            width: 600px;
+            background-color: yellowgreen;
+            height: 50px;
+        }
+
+        .div3 {
+            width: 800px;
+            background-color: rgb(14, 70, 224);
+            height: 50px;
+            overflow: hidden;
+        }
+
+        #UL {
+            list-style-type: none;
+        }
+
+        #L {
+            float: left;
+        }
+
+        #L a {
+            display: block;
+            text-decoration: none;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 3px;
+            padding-right: 15px;
+        }
+
+        #L a:hover {
+            background-color: green;
+            color: white;
+        }
+
+        .center {
+            width: 800px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .center .div4 {
+            width: 300px;
+            height: 600px;
+        }
+
+        .center .div4 .demo1 {
+            width: 300px;
+            height: 150px;
+            background-color: red;
+        }
+
+        .center .div4 .demo2 {
+            width: 300px;
+            height: 150px;
+            background-color: rgb(233, 98, 98);
+        }
+
+        .center .div4 .demo3 {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(116, 19, 19);
+        }
+
+        .center .div5 {
+            width: 300px;
+            height: 600px;
+        }
+
+        .center .div5 .demo4 {
+            width: 300px;
+            height: 200px;
+            background-color: rgb(15, 138, 187);
+        }
+
+        .center .div5 .demo5 {
+            width: 300px;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        .center .div6 {
+            width: 200px;
+            height: 600px;
+        }
+
+        .center .div6 .demo6 {
+            width: 200px;
+            height: 100px;
+        }
+
+        .center .div6 .demo7 {
+            width: 200px;
+            height: 300px;
+            background-color: grey;
+        }
+
+        .center .div6 .demo8 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 0, 0, 0.185);
+        }
+
+        .footer {
+            width: 800px;
+            height: 100px;
+            background-color: blue;
+            color: yellow;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <img src="logo.svg" alt="logo" class="div1">
+        </div>
+        <div class="div2">Mobile no, E-mail</div>
+    </div>
+    <div class="div3">
+        <ul id="UL">
+            <li id="L"><a href="#">Product Management</a></li>
+            <li id="L"><a href="#">Purchase Management</a></li>
+            <li id="L"><a href="#">Report</a></li>
+            <li id="L"><a href="#">Conduct</a></li>
+        </ul>
+    </div>
+    <div class="center">
+        <div class="div4">
+            <div class="demo1"></div>
+            <div class="demo2"></div>
+            <div class="demo3"></div>
+        </div>
+        <div class="div5">
+            <div class="demo4"></div>
+            <div class="demo5"></div>
+        </div>
+        <div class="div6">
+            <div>
+                <img src="Taj.jpg" alt="Taj" class="demo6">
+            </div>
+            <div class="demo7"></div>
+            <div class="demo8"></div>
+        </div>
+    </div>
+    <div class="footer">&#169;Absargraphics.com</div>
+</body>
+
+</html>
