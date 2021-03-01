@@ -55,14 +55,6 @@ h2 {
 input {
     margin-right: 5px;
 }
-.button {
-    background-color: red;
-    color: white;
-    width: 80px;
-    padding: 3px;
-    cursor: pointer;
-    outline: none;
-}
 table,th,td {
     border: 1px solid black;
     border-collapse: collapse;
