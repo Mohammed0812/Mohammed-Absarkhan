@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PurchaseComponent,
-    AboutComponent
+    AboutComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
