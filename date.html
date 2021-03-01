@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculate Days Difference</title>
+    <style>
+        button {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <label>Starting date:</label>
+    <input type="date" id="date1">
+    <br><br>
+    <label>Ending date:</label>
+    <input type="date" id="date2">
+    <br><br>
+    <button id="btn" onclick="diff()">Click</button>
+
+    <script>
+        function diff() {
+            var d1 = document.getElementById('date1').value;
+            var d2 = document.getElementById('date2').value;
+            var date1 = new Date(d1);
+            var date2 = new Date(d2);
+            //calculate time difference
+            var time = date2.getTime() - date1.getTime();
+            //calculate days difference
+            var difference = time/(1000 * 3600 * 24);
+            alert(difference);
+        }
+
+    </script>
+</body>
+</html>
