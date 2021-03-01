@@ -1,21 +1,20 @@
 <body>
-  
-
 <h1>Stock Management</h1>
 <ul id="UL">
-  <li id="L"><a href="Stock.html">Product Management</a></li>
-  <li id="L"><a href="purchase.html">Purchase Management</a></li>
-  <li id="L"><a href="report.html">Report</a></li>
+  <li id="L"><a href="#">Product Management</a></li>
+  <li id="L"><a href="#">Purchase Management</a></li>
+  <li id="L"><a href="#">Report</a></li>
   <li id="L"><a href="#">Conduct</a></li>
-  <button id="Log"><a href="login.html">Log Out</a></button>
+  <button id="Log"><a href="#">Log Out</a></button>
 </ul>
 <br>
 <h2>Product Management</h2>
 <div class="form">
   <input type="text" placeholder="Enter Product Name..." class="name">
+  <input type="number" placeholder="Ender product Quantity..." class="quant">
   <input type="number" placeholder="Enter Product price..." class="price">
   <br><br>
-  <button (click)="add()" class="button">Add</button>
+  <button onclick="add()" class="button">Add</button>
   {{title}}
 </div>
 <br><br>
@@ -25,10 +24,6 @@
     <th>QUANTITY</th>
     <th>PRICE</th>
   </tr>
-  <tr>
-    <td>{{name}}</td>
-    <td><input type="number"></td>
-    <td>{{price}}</td>
-  </tr>
+  
 </table>
 </body>
