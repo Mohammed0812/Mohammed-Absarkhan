@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 import { AboutComponent } from './about/about.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PurchaseComponent,
     AboutComponent
   ],
   imports: [
