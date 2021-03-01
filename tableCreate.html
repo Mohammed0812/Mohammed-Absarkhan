@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Table</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <label>Ender row</label>
+    <input type="number" id="row">
+    <br><br>
+    <label>Ender column</label>
+    <input type="number" id="column">
+    <br><br>
+    <button onclick="createTable()">Create table</button>
+    <br><br>
+    <table border="1" id="table"></table>`
+    
+    <script>
+        function createTable() {
+            var r = document.getElementById('row').value;
+            var c = document.getElementById('column').value;
+            for(var i = 0;i < parseInt(r);i++) {
+                var x = document.getElementById('table').insertRow(i);
+                for(var j = 0;j < parseInt(c);j++) {
+                var y = x.insertCell(j);
+                y.innerHTML = x + y;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
