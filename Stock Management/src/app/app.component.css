@@ -69,3 +69,13 @@ td {
 table {
     width: 50%;
 }
+button {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: blue;
+}
