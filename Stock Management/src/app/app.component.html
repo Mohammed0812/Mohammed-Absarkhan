@@ -13,7 +13,7 @@
 <input type="text" [(ngModel)]="fname" placeholder="Enter fruit name">
 <br><br>
 <label>Product Price</label>
-<input type="number" [(ngModel)]="fprice" placeholder="Enter fruit amt">
+<input type="number" [(ngModel)]="fprice" placeholder="Enter fruit price">
 <br><br>
 <label>Product Quantity</label>
 <input type="number" [(ngModel)]="fquant" placeholder="Enter fruit quantity">
@@ -32,5 +32,4 @@
     <td>{{q.quant}}</td>
   </tr>
 </table>
-
-
+<router-outlet></router-outlet>
