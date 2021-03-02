@@ -17,9 +17,24 @@ th {
 td {
     background-color: white;
 }
+th,td {
+    padding: 2px;
+}
 table button{
     width: -webkit-fill-available;
 }
 table {
     width: 50%;
+    margin-left: 10px;
+}
+button {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+}
+button:hover {
+    background-color: blue;
 }
