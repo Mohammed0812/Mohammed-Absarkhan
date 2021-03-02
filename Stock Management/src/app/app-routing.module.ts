@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {PurchaseComponent} from './purchase/purchase.component';
 import {ReportComponent} from './report/report.component';
 import {AboutComponent} from './about/about.component';
+import {ProductComponent} from './product/product.component';
 
 const routes: Routes = [
   {path:"about", component:AboutComponent},
+  {path:"product", component:ProductComponent},
   {path:"purchase", component:PurchaseComponent},
   {path:"report", component:ReportComponent}
 ];
@@ -15,4 +17,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RoutingComponent = [AboutComponent, PurchaseComponent,ReportComponent];
+export const RoutingComponent = [AboutComponent,ProductComponent,PurchaseComponent,ReportComponent];
