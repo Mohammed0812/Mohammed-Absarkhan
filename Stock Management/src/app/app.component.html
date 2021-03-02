@@ -1,11 +1,11 @@
-
+<body>
 
 <h1>Stock Management</h1>
 <ul id="UL">
-  <li id="L"><a href="Stock.html">Product Management</a></li>
-  <li id="L"><a routerLink = "/purchase">Purchase Management</a></li>
-  <li id="L"><a routerLink = "/report">Report</a></li>
-  <li id="L"><a routerLink = "/about">About</a></li>
+  <li id="L"><a href="#">Product Management</a></li>
+  <li id="L"><a href="#">Purchase Management</a></li>
+  <li id="L"><a href="#">Report</a></li>
+  <li id="L"><a href="#">About</a></li>
 </ul>
 <br>
 <h2>Product Management</h2>
@@ -25,11 +25,16 @@
     <th>Name</th>
     <th>Price</th>
     <th>Quantity</th>
+    <th>Delete</th>
   </tr>
-  <tr *ngFor="let q of product">
+  <tr *ngFor="let q of product; let i = index">
     <td>{{q.name}}</td>
     <td>{{q.price}}</td>
     <td>{{q.quant}}</td>
+    <td><button (click) = "delete(i)">Delete</button></td>
   </tr>
 </table>
+<app-purchase></app-purchase>
+<app-report></app-report>
 <router-outlet></router-outlet>
+</body>
