@@ -10,7 +10,7 @@ export class ProductComponent implements OnInit {
   myclass = "sample-class-name";
   fprice = 0;
   fquant = 0;
-
+  total = 0;
   product: any = [
   ];
 
@@ -25,7 +25,8 @@ export class ProductComponent implements OnInit {
     let f = {
       name: this.fname,
       price: this.fprice,
-      quant: this.fquant
+      quant: this.fquant,
+      total: this.fprice * this.fquant
     };
     this.product.push(f);
     localStorage.setItem('product', JSON.stringify(this.product));
