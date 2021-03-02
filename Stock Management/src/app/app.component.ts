@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,9 @@ export class AppComponent {
     };
     this.product.push(f);
     localStorage.setItem('product', JSON.stringify(this.product));
+  }
+  delete(i: any) {
+    this.product.splice(i,1);
   }
  
 }
