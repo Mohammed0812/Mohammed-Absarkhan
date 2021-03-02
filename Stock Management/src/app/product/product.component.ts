@@ -34,7 +34,6 @@ export class ProductComponent implements OnInit {
     this.product.splice(i, 1);
   }
 
-
 ngOnInit(): void {
 }
 
