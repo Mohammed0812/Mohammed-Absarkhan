@@ -24,12 +24,14 @@
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Total</th>
             <th>Delete</th>
         </tr>
         <tr *ngFor="let q of product; let i = index">
             <td>{{q.name}}</td>
             <td>{{q.price}}</td>
             <td>{{q.quant}}</td>
+            <td>{{q.total}}</td>
             <td><button (click)="delete(i)">Delete</button></td>
         </tr>
     </table>
