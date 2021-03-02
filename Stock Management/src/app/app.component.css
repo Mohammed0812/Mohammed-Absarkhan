@@ -68,6 +68,10 @@ td {
 }
 table {
     width: 50%;
+    margin-left: 10px;
+}
+th,td {
+    padding: 2px;
 }
 button {
     background-color: red;
