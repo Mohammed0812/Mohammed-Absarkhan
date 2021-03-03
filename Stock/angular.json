@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "c86de585-b54b-41ac-b331-04e5c1d598d0"
+    "analytics": "297996ac-a95d-4512-bc81-424e4f10b75d"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Khan": {
+    "Stock": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Khan",
+            "outputPath": "dist/Stock",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Khan:build"
+            "browserTarget": "Stock:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Khan:build:production"
+              "browserTarget": "Stock:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Khan:build"
+            "browserTarget": "Stock:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Khan:serve"
+            "devServerTarget": "Stock:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Khan:serve:production"
+              "devServerTarget": "Stock:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Khan"
+  "defaultProject": "Stock"
 }
